@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: new-nginx1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: new-nginx1
+    spec:
+      containers:
+      - name: new-nginx
+        image: mosim8920/nginx 
+        ports:
+        - containerPort: 80
